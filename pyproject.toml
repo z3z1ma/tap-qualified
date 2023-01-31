@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tap-qualified"
-version = "1.0.1"
+version = "1.0.2"
 description = "`tap-qualified` is a Singer tap for Qualified, built with the Meltano Singer SDK."
 authors = ["Alex Butler"]
 keywords = ["ELT", "Qualified"]
