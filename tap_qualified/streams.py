@@ -12,7 +12,7 @@ class RepConversationStream(QualifiedStream):
     name = "rep_conversations"
     path = "/rep_conversations"
     primary_keys = ["id"]
-    schema_file = SCHEMAS_DIR / "rep_conversations.json"
+    schema_filepath = SCHEMAS_DIR / "rep_conversations.json"
 
 
 class BotConversationStream(QualifiedStream):
@@ -21,4 +21,4 @@ class BotConversationStream(QualifiedStream):
     name = "bot_conversations"
     path = "/bot_conversations"
     primary_keys = ["id"]
-    schema_file = SCHEMAS_DIR / "bot_conversations.json"
+    schema_filepath = SCHEMAS_DIR / "bot_conversations.json"
