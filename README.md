@@ -1,42 +1,32 @@
-# tap-qualified
+<h1 align="center">Tap-Qualified</h1>
 
-`tap-qualified` is a Singer tap for Qualified.
+<p align="center">
+<a href="https://github.com/z3z1ma/tap-qualified/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+</p>
 
-Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
+`tap-qualified` is a Singer tap for [Qualified](https://www.qualified.com/).
 
-<!--
+Qualified helps companies generate pipeline, faster. Tap into your greatest asset - your website - to identify your most valuable visitors, instantly start sales conversations, schedule  meetings, convert outbound and paid traffic, and uncover signals of buying intent.
 
-Developer TODO: Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPi repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
-
-## Installation
-
-Install from PyPi:
+Install from [PyPi](https://pypi.org/project/tap-qualified/):
 
 ```bash
 pipx install tap-qualified
 ```
 
-Install from GitHub:
-
-```bash
-pipx install git+https://github.com/ORG_NAME/tap-qualified.git@main
-```
-
--->
-
 ## Configuration
 
 ### Accepted Config Options
 
-<!--
-Developer TODO: Provide a list of config options accepted by the tap.
-
-This section can be created by copy-pasting the CLI output from:
-
-```
-tap-qualified --about --format=markdown
-```
--->
+| Setting             | Required | Default | Description |
+|:--------------------|:--------:|:-------:|:------------|
+| api_key             | True     | None    | The token to authenticate against the API service |
+| user_agent          | False    | Harness.io/Tap Qualified | The user agent to use when making requests to the API service |
+| stream_maps         | False    | None    | Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html). |
+| stream_map_config   | False    | None    | User-defined config values to be used within map expressions. |
+| flattening_enabled  | False    | None    | 'True' to enable schema flattening and automatically expand nested properties. |
+| flattening_max_depth| False    | None    | The max depth to flatten schemas. |
 
 A full list of supported settings and capabilities for this
 tap is available by running:
@@ -53,9 +43,7 @@ environment variable is set either in the terminal context or in the `.env` file
 
 ### Source Authentication and Authorization
 
-<!--
-Developer TODO: If your tap requires special access on the source system, or any special authentication requirements, provide those here.
--->
+Reach out to your account executive to inquire about API access.
 
 ## Usage
 
@@ -100,11 +88,6 @@ poetry run tap-qualified --help
 _**Note:** This tap will work in any Singer environment and does not require Meltano.
 Examples here are for convenience and to streamline end-to-end orchestration scenarios._
 
-<!--
-Developer TODO:
-Your project comes with a custom `meltano.yml` project file already created. Open the `meltano.yml` and follow any "TODO" items listed in
-the file.
--->
 
 Next, install Meltano (if you haven't already) and any needed plugins:
 
@@ -129,3 +112,5 @@ meltano elt tap-qualified target-jsonl
 
 See the [dev guide](https://sdk.meltano.com/en/latest/dev_guide.html) for more instructions on how to use the SDK to
 develop your own taps and targets.
+
+Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.

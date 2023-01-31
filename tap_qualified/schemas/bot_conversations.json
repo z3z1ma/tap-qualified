@@ -1,0 +1,139 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "rep_conversation_id": {
+            "type": "string"
+        },
+        "started_at": {
+            "type": "string"
+        },
+        "salesforce_lead_captured_by_bot": {
+            "type": "boolean"
+        },
+        "pardot_prospect_captured_by_bot": {
+            "type": "boolean"
+        },
+        "marketo_lead_captured_by_bot": {
+            "type": "boolean"
+        },
+        "eloqua_contact_captured_by_bot": {
+            "type": "boolean"
+        },
+        "visitor": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "salesforce_lead_id": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "salesforce_contact_id": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "pardot_prospect_id": {
+                    "type": "null"
+                },
+                "marketo_lead_id": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "hubspot_contact_id": {
+                    "type": "null"
+                },
+                "eloqua_contact_id": {
+                    "type": "null"
+                }
+            }
+        },
+        "bot": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "meetings": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "offer_sent_at": {
+                        "type": "string"
+                    },
+                    "booked_user": {
+                        "anyOf": [
+                            {
+                                "type": "null"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "messages": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "sent_at": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "type": "null"
+                    },
+                    "visitor_id": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "bot_id": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

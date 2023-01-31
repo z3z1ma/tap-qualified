@@ -2,57 +2,39 @@
 
 from typing import List
 
-from singer_sdk import Tap, Stream
-from singer_sdk import typing as th  # JSON schema typing helpers
-# TODO: Import your custom stream types here:
-from tap_qualified.streams import (
-    QualifiedStream,
-    UsersStream,
-    GroupsStream,
-)
-# TODO: Compile a list of custom stream types here
-#       OR rewrite discover_streams() below with your custom logic.
-STREAM_TYPES = [
-    UsersStream,
-    GroupsStream,
-]
+from singer_sdk import Stream, Tap
+from singer_sdk import typing as th
+
+from tap_qualified.streams import BotConversationStream, RepConversationStream
 
 
 class TapQualified(Tap):
     """Qualified tap class."""
+
     name = "tap-qualified"
 
-    # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property(
-            "auth_token",
+            "api_key",
             th.StringType,
             required=True,
-            secret=True,  # Flag config as protected.
-            description="The token to authenticate against the API service"
+            secret=True,
+            description="The token to authenticate against the API service",
         ),
         th.Property(
-            "project_ids",
-            th.ArrayType(th.StringType),
-            required=True,
-            description="Project IDs to replicate"
-        ),
-        th.Property(
-            "start_date",
-            th.DateTimeType,
-            description="The earliest record date to sync"
-        ),
-        th.Property(
-            "api_url",
+            "user_agent",
             th.StringType,
-            default="https://api.mysample.com",
-            description="The url for the API service"
+            description="The user agent to use when making requests to the API service",
+            default="Harness.io/Tap Qualified",
         ),
     ).to_dict()
 
     def discover_streams(self) -> List[Stream]:
         """Return a list of discovered streams."""
-        return [stream_class(tap=self) for stream_class in STREAM_TYPES]
+        return [
+            stream_class(tap=self)
+            for stream_class in (BotConversationStream, RepConversationStream)
+        ]
 
 
 if __name__ == "__main__":
